@@ -11,7 +11,8 @@ interface InviteCodePageProps{
 
 const InviteCodePage = async ({params}:InviteCodePageProps) => {
     const profile= await currentProfile();
-    if(!profile) return redirectToSignIn();
+
+    if(!profile){ return redirectToSignIn();}
     if(!params.inviteCode) return redirect("/");
 
     const existingServer= await db.server.findFirst({
@@ -26,10 +27,27 @@ const InviteCodePage = async ({params}:InviteCodePageProps) => {
     })
 
     if(existingServer) return redirect(`/servers/${existingServer.id}`)
+    const server= await db.server.update({
+        where:{
+            inviteCode:params.inviteCode,
+        },
+        data:{
+            members:{
+                create:[
+                    {
+                        profileId:profile.id
+                    }
+                ]
+            }
+        }
+        
+        
+        })
+        if(server){
+            return redirect(`/servers/${server.id}`)
+        }
     
-    return ( <div>
-
-    </div>  );
+    return null;
 }
  
 export default InviteCodePage;

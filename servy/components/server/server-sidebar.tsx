@@ -9,13 +9,14 @@ import { Hash, Mic, ShieldAlert, ShieldCheck, Video } from "lucide-react";
 import { Separator } from "../ui/separator";
 import ServerSection from "./server-section";
 import ServerChannel from "./server-channel";
+import ServerMember from "./server-member";
 
 interface ServerSidebarProps{
     serverId:string;
 }
 
 const iconMap={
-    [ChannelType.TEXT]: <Hash className="h-4 w-4"/>,
+    [ChannelType.TEXT]: <Hash className="h-4 w-4 mr-2"/>,
     [ChannelType.AUDIO]: <Mic className="h-4 w-4 mr-2"/>,
     [ChannelType.VIDEO]: <Video className="h-4 w-4 mr-2"/>
 }
@@ -105,7 +106,7 @@ export const ServerSidebar= async ({
                     ]} />
 
                 </div>
-                <Separator className="bg-zinc-200 dark:bf-zinc-700 rounded-md my-2"/>
+                <Separator className="bg-zinc-200 dark:bg-zinc-700 rounded-md my-2"/>
                 {!!textChannels?.length && (
                     <div className="mb-2">
                         <ServerSection 
@@ -115,14 +116,85 @@ export const ServerSidebar= async ({
                             label="Text Channels"
                         
                         />
-                        {textChannels.map((channel)=>(
-                            <ServerChannel
-                                key={channel.id}
-                                channel={channel}
-                                server={server}
-                                role={role}
-                            />
-                        ))}
+                        <div className="space-y-[2px]">
+                            {textChannels.map((channel)=>(
+                                <ServerChannel
+                                    key={channel.id}
+                                    channel={channel}
+                                    server={server}
+                                    role={role}
+                                />
+                            ))}
+                        </div>
+
+                    </div>
+                )}
+
+                {!!audioChannels?.length && (
+                    <div className="mb-2">
+                        <ServerSection 
+                            sectionType="channels"
+                            channelType={ChannelType.AUDIO}
+                            role={role}
+                            label="Voice Channels"
+                        
+                        />
+                        <div className="space-y-[2px]">
+                            {audioChannels.map((channel)=>(
+                                <ServerChannel
+                                    key={channel.id}
+                                    channel={channel}
+                                    server={server}
+                                    role={role}
+                                />
+                            ))}
+                        </div>
+                
+                {!!videoChannels?.length && (
+                    <div className="mb-2">
+                        <ServerSection 
+                            sectionType="channels"
+                            channelType={ChannelType.VIDEO}
+                            role={role}
+                            label="Video Channels"
+                        
+                        />
+                        <div className="space-y-[2px]">
+                            {videoChannels.map((channel)=>(
+                                <ServerChannel
+                                    key={channel.id}
+                                    channel={channel}
+                                    server={server}
+                                    role={role}
+                                />
+                            ))}
+                        </div>
+
+                    </div>
+                )}
+                
+                {!!members?.length && (
+                    <div className="mb-2">
+                        <ServerSection 
+                            sectionType="members"
+                            role={role}
+                            label="Members"
+                            server={server}
+                        
+                        />
+                        <div className="space-y-[2px]">
+                            {members.map((member)=>(
+                                <ServerMember
+                                    key={member.id}
+                                    member={member}
+                                    server={server}
+                                />
+                            ))}
+                        </div>
+
+                    </div>
+                )}
+
 
                     </div>
                 )}

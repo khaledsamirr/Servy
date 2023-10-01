@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
  
+
 html,
 body,
 :root {
@@ -79,3 +80,7 @@ body,
     @apply bg-background text-foreground;
   }
 }
+
+
+
+@import "~@uploadthing/react/styles.css";

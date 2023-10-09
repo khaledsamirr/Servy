@@ -8,7 +8,7 @@
     <br>
 </p> -->
 
-Servy is a server platfrom 
+Servy is a server platform 
 
 
 
@@ -18,8 +18,9 @@ Servy is an instant messaging and VoIP social platform. Users have the ability t
 
 ![Servy Overview](https://github.com/khaledsamirr/Servy/blob/main/Screenshot%202023-10-03%20064427.png)
 
-* Servy give the ability to users to communicate with thier friends and colleagues via servers.
+* Servy allows users to communicate with their friends and colleagues via servers.
 * It supports **Audio** - **Video** - **Text** Channels.
+* 
 * Technologies used: 
     1- NextJS
     2- Postgres

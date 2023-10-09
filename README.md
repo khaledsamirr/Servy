@@ -19,8 +19,9 @@ Servy is an instant messaging and VoIP social platform. Users have the ability t
 ![Servy Overview](https://github.com/khaledsamirr/Servy/blob/main/Screenshot%202023-10-03%20064427.png)
 
 * Servy allows users to communicate with their friends and colleagues via servers.
+  
 * It supports **Audio** - **Video** - **Text** Channels.
-* 
+  
 * Technologies used: 
     1- NextJS
     2- Postgres

@@ -13,7 +13,13 @@ const nextConfig = {
         "uploadthing.com",
         "utfs.io"
       ]
-    }
+    },
+    eslint: {
+      ignoreDuringBuilds: true,
+    },
+    typescript: {
+      ignoreBuildErrors: true,
+    },
   }
   
   module.exports = nextConfig

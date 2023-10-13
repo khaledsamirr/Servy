@@ -232,8 +232,9 @@ export const ChatItem = ({
               />
             </ActionTooltip>
           )}
-          <ActionTooltip label="Delete">
-            <Trash
+          <button disabled={isEditing}>
+          <ActionTooltip  label="Delete">
+            <Trash 
               onClick={() => onOpen("deleteMessage", { 
                 apiUrl: `${socketUrl}/${id}`,
                 query: socketQuery,
@@ -241,6 +242,7 @@ export const ChatItem = ({
               className="cursor-pointer ml-auto w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition"
             />
           </ActionTooltip>
+          </button>
         </div>
       )}
     </div>
